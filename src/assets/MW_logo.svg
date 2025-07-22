@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 196.8 173.2">
+  <!-- Generator: Adobe Illustrator 29.3.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 151)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#Unbenannter_Verlauf);
+      }
+
+      .st1 {
+        fill: #e6007e;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf" data-name="Unbenannter Verlauf" x1="71.4" y1="96.2" x2="240.8" y2="62.3" gradientTransform="translate(0 175.9) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#008cff"/>
+      <stop offset=".2" stop-color="#0086ff"/>
+      <stop offset=".5" stop-color="#0078ff"/>
+      <stop offset=".7" stop-color="#0060ff"/>
+      <stop offset=".8" stop-color="#005fff"/>
+      <stop offset=".8" stop-color="#0056ff"/>
+      <stop offset=".9" stop-color="#003eff"/>
+      <stop offset=".9" stop-color="#0030ff"/>
+    </linearGradient>
+  </defs>
+  <path class="st1" d="M71.3,62.4h0c.1-21.3,10.8-40,27.1-51.3C88.3,4.1,76,0,62.8,0,28.2,0,.2,27.9,0,62.4h0v110.7h54.2V62.8h0c0-4.7,3.8-8.6,8.6-8.6s8.5,3.8,8.6,8.5v-.3h0Z"/>
+  <path class="st0" d="M196.8,62.4c-.2-34.5-28.2-62.4-62.8-62.4s-62.6,27.9-62.8,62.4h0v110.7h54.2V62.8h0c0-3.3,1.8-6.5,4.9-7.8,6.2-2.6,12.2,1.9,12.2,7.8h0v110.4h54.2V62.4h0Z"/>
+</svg>
