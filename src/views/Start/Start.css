@@ -27,11 +27,13 @@
 }
 
 button {
-  display: flex;
-  align-items: center;
+  margin: 2rem auto 0 auto; 
+  display: block;
   font-size: 2rem;
   border: 0.1rem white solid;
   border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
 }
 
 .bg-text {
