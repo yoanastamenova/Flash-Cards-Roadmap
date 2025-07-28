@@ -1,8 +1,16 @@
 import React from 'react'
 import logo from "../../assets/MW_logo.svg"
 import "./Start.css"
+import { Main } from '../Main/Main'
+import { useNavigate } from 'react-router-dom'
 
 export const Start = () => {
+  const navigate = useNavigate();
+
+  const handleStart = () => {
+    navigate('/game');
+  }
+ 
   return (
     <div className='container'>
       <div className='bg-image'></div>
@@ -13,7 +21,8 @@ export const Start = () => {
           The right question is only one. For the quiz there is a time limit of 20 minutes. If you get out of time the quiz will be automatically ended.
           Good luck and have fun!
         </p>
-      <button className='button'>Start</button>
+      <button className='button' onClick={handleStart}>
+        Start</button>
       </div>
     </div>
   )
