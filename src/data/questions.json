@@ -6,7 +6,12 @@
   },
   {
     "question": "What is the name of the person who had the idea to open the office in Spain?",
-    "answers": ["Khaled", "Paula Montesa", "Aleksandra"],
-    "correctAnswer": "Paula Montesa"
+    "answers": ["Khaled", "Paula", "Aleksandra"],
+    "correctAnswer": "Paula"
+  },
+  {
+    "question": "How many people are working from the Valencia?",
+    "answers": ["20", "30", "50"],
+    "correctAnswer": "50"
   }
 ]
