@@ -1,0 +1,12 @@
+[
+  {
+    "question": "How many nationalities do we have?",
+    "answers": ["5", "10", "15"],
+    "correctAnswer": "10"
+  },
+  {
+    "question": "What is the name of the person who had the idea to open the office in Spain?",
+    "answers": ["Khaled", "Paula Montesa", "Aleksandra"],
+    "correctAnswer": "Paula Montesa"
+  }
+]
