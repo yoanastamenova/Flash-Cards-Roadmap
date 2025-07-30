@@ -25,28 +25,28 @@
     "correctAnswer": "12"
   },
   {
-    "question": "What is the name of the most hosted external event?",
-    "answers": ["20", "30", "50"],
-    "correctAnswer": "50"
+    "question": "What is the name of the christmas gathering event?",
+    "answers": ["Flutter Valencia", "International cusine", "JAT"],
+    "correctAnswer": "JAT"
   },
   {
-    "question": "Who is the first german person that came to the office",
-    "answers": ["20", "30", "50"],
-    "correctAnswer": "50"
+    "question": "What department has most members in the office?",
+    "answers": ["WE", "DiE", "MX"],
+    "correctAnswer": "DiE"
   },
   {
-    "question": "",
-    "answers": ["20", "30", "50"],
-    "correctAnswer": "50"
+    "question": "For how long we keep the 'fallas going out' tradition?",
+    "answers": ["2 years", "3 years", "5 years"],
+    "correctAnswer": "3 years"
   },
   {
-    "question": "",
-    "answers": ["20", "30", "50"],
-    "correctAnswer": "50"
+    "question": "Who loves to cook paella for us?",
+    "answers": ["Samuel", "Elias", "Marta"],
+    "correctAnswer": "Samuel"
   },
   {
-    "question": "",
-    "answers": ["20", "30", "50"],
-    "correctAnswer": "50"
+    "question": "Who helps around with finance?",
+    "answers": ["Yoana", "Mateo", "Sonia"],
+    "correctAnswer": "Sonia"
   }
 ]
