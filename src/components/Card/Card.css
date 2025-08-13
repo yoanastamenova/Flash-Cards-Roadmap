@@ -1,0 +1,7 @@
+.card-body {
+      top: 50%;
+  left: 50%;
+    border: 2px solid white;
+    background-color: transparent;
+    backdrop-filter: blur(80px); 
+}

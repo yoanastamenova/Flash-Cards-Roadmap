@@ -1,8 +1,11 @@
 import React from 'react'
 import "./Main.css"
+import Card from '../../components/Card/Card'
 
-export const Main = () => {
+export default function Main() {
   return (
-    <div>Main</div>
+    <div>
+      <Card />
+    </div>
   )
 }

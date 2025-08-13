@@ -3,7 +3,7 @@ import "./card.css";
 
 const Card = () => {
   return (
-    <div>
+    <div className='card-body'>
       <h1>Hello from Card</h1>
     </div>
   );

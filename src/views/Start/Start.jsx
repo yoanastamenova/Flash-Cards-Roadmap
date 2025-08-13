@@ -1,7 +1,6 @@
 import React from 'react'
 import logo from "../../assets/MW_logo.svg"
 import "./Start.css"
-import { Main } from '../Main/Main'
 import { useNavigate } from 'react-router-dom'
 
 export const Start = () => {
@@ -12,7 +11,7 @@ export const Start = () => {
   }
  
   return (
-    <div className='container'>
+    <div className='main-container'>
       <div className='bg-image'></div>
       <div className='bg-text'>
         <img src={logo} className='logoStart'></img>
