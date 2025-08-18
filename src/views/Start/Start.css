@@ -46,11 +46,9 @@ button {
   align-items: center;
   z-index: 2;
   height: 30vh;
+  width: 100vh;
   padding: 20px;
   text-align: center;
   border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  overflow: hidden;
 }
