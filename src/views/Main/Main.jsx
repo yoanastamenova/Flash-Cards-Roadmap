@@ -4,8 +4,8 @@ import Card from '../../components/Card/Card'
 
 export default function Main() {
   return (
-    <div className='main-container'>
+    <>
       <Card />
-    </div>
+    </>
   )
 }

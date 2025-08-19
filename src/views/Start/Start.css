@@ -1,3 +1,12 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 .bg-image {
   background-image: url(../../assets/Abastos.jpg);
   background-size: cover;
