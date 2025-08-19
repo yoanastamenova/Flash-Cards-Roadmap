@@ -1,25 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./card.css";
-import "../../data/questions.json"
+import questions from "../../data/questions.json"
+import { useNavigate } from 'react-router-dom';
 
 const Card = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const currentQuestion = questions[currentIndex];
+    let navigate = useNavigate();
+
   return (
     <div className='card-body'>
         <form>
-          <fieldset>
-            <legend>Question</legend>
-            <div>
-              <input type="radio" id="contactChoice1" name="contact" value="email" defaultChecked />
-              <label htmlFor="contactChoice1">Email</label>
-
-              <input type="radio" id="contactChoice2" name="contact" value="phone" />
-              <label htmlFor="contactChoice2">Phone</label>
-
-              <input type="radio" id="contactChoice3" name="contact" value="mail" />
-              <label htmlFor="contactChoice3">Mail</label>
+           <fieldset>
+           <legend>{currentQuestion.question}</legend>
+             {currentQuestion.answers.map((answer, i) => (
+              <div key={i}>
+              <input type="radio" id={`answer-${i}`} name={`q-${currentIndex}`} value={answer} />
+              <label htmlFor={`answer-${i}`}>{answer}</label>
             </div>
+          ))}
           <div>
-           <button type="submit">Submit</button>
+          {currentIndex > 0 && (
+          <button className="button-card"
+          type="button"
+          onClick={() => setCurrentIndex(currentIndex - 1)}> 
+          Back </button> )}
+
+          {currentIndex < questions.length - 1 && (
+             <button className="button-card" type="button"
+            onClick={() => setCurrentIndex(currentIndex + 1)}> 
+            Next </button>)}
+
+          {currentIndex === questions.length - 1 && (
+            <button className="button-card" type="submit"
+            onClick={() => navigate("/end")}>
+            Submit
+            </button>)}
           </div>
           </fieldset>
         </form>

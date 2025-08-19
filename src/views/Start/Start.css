@@ -1,10 +1,3 @@
-.main-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .bg-image {
   background-image: url(../../assets/Abastos.jpg);
   background-size: cover;
@@ -28,11 +21,10 @@
   font-weight: bold;
 }
 
-button {
+.button-start {
   margin: 2rem auto 0 auto; 
   display: block;
-  font-size: 2rem;
-  border: 0.1rem white solid;
+  font-size: 1.5rem;
   border-radius: 1rem;
   padding: 0.5rem 2rem;
   cursor: pointer;

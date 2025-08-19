@@ -20,7 +20,7 @@ export const Start = () => {
           The right question is only one. For the quiz there is a time limit of 20 minutes. If you get out of time the quiz will be automatically ended.
           Good luck and have fun!
         </p>
-      <button className='button' onClick={handleStart}>
+      <button className='button-start' onClick={handleStart}>
         Start</button>
       </div>
     </div>

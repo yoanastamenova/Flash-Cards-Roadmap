@@ -6,7 +6,7 @@
   },
   {
     "question": "What is the name of the person who had the idea to open the office in Spain?",
-    "answers": ["Khaled", "Paula", "Aleksandra"],
+    "answers": ["Khaled", "Paula", "Mateo"],
     "correctAnswer": "Paula"
   },
   {
@@ -46,7 +46,7 @@
   },
   {
     "question": "Who helps around with finance?",
-    "answers": ["Yoana", "Mateo", "Sonia"],
+    "answers": ["Yoana", "Elias", "Sonia"],
     "correctAnswer": "Sonia"
   }
 ]

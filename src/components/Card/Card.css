@@ -2,11 +2,6 @@ html {
   font-family: sans-serif;
 }
 
-div:first-of-type {
-  display: flex;
-  margin-bottom: 5px;
-}
-
 label {
   margin-right: 15px;
   line-height: 32px;
@@ -31,23 +26,23 @@ input:checked {
   border: 6px solid black;
 }
 
-button,
+.button-card,
 legend {
-  color: white;
-  background-color: black;
-  padding: 5px 10px;
-  border-radius: 0;
-  border: 0;
-  font-size: 14px;
-}
-
-button:hover,
-button:focus {
-  color: #999999;
-}
-
-button:active {
-  background-color: white;
   color: black;
-  outline: 1px solid black;
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 20;
+  border: 0.01rem solid white;
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 1.5rem;
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  -ms-border-radius: 20;
+  -o-border-radius: 20;
+}
+
+.button-card:hover {
+  color: turquoise;
+  cursor: pointer;
 }
