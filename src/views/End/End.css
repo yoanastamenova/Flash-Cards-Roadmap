@@ -1,0 +1,21 @@
+.end-body {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.end-text, .end-score{
+    font-size: 1.8rem;
+}
+
+.end-button {
+margin: 2rem auto 0 auto; 
+  display: block;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgb(185, 34, 114) 50%, rgb(85, 83, 237) 100%);
+}
