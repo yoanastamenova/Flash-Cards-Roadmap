@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./card.css";
+import "./Card.css";
 import questions from "../../data/questions.json"
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ const Card = () => {
           ))}
           <div>
           {currentIndex > 0 && (
-          <button className="button-card"
+          <button className="button-card-back"
           type="button"
           onClick={() => setCurrentIndex(currentIndex - 1)}> 
           Back </button> )}
@@ -32,7 +32,7 @@ const Card = () => {
             Next </button>)}
 
           {currentIndex === questions.length - 1 && (
-            <button className="button-card" type="submit"
+            <button className="button-card-submit" type="submit"
             onClick={() => navigate("/end")}>
             Submit
             </button>)}

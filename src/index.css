@@ -1,0 +1,13 @@
+* {
+  font-family: "Outfit", Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,3 +1,16 @@
+.card-body {
+    background: linear-gradient(90deg, rgb(185, 34, 114) 50%, rgb(85, 83, 237) 100%);
+    color: white;
+    width: 40vw;
+    border: 4px solid black;
+    padding: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 html {
   font-family: sans-serif;
 }
@@ -8,13 +21,12 @@ label {
 }
 
 input {
-  appearance: none;
-
+  margin-top: 1rem;
   border-radius: 50%;
   width: 16px;
   height: 16px;
 
-  border: 2px solid #999999;
+  border: 2px solid white;
   transition: 0.2s all linear;
   margin-right: 5px;
 
@@ -22,27 +34,58 @@ input {
   top: 4px;
 }
 
-input:checked {
-  border: 6px solid black;
+legend {
+  font-size: 1.7rem;
 }
 
-.button-card,
-legend {
-  color: black;
+fieldset {
+  border: none;
+
+}
+
+.button-card {
+  color: white;
   background-color: transparent;
   padding: 5px 10px;
-  border-radius: 20;
-  border: 0.01rem solid white;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-left: 18rem;
+  border: 0.1rem solid black;
   backdrop-filter: blur(80px);
   -webkit-backdrop-filter: blur(10px);
-  font-size: 1.5rem;
-  -webkit-border-radius: 20;
-  -moz-border-radius: 20;
-  -ms-border-radius: 20;
-  -o-border-radius: 20;
+  font-size: 1.4rem;
+  padding: 0.5rem;
 }
 
-.button-card:hover {
-  color: turquoise;
+.button-card-submit {
+  color: white;
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-left: 17rem;
+  border: 0.1rem solid black;
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 1.4rem;
+  padding: 0.5rem;
+}
+
+.button-card-back {
+  color: white;
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  border: 0.1rem solid black;
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 1.4rem;
+  padding: 0.5rem;
+}
+
+.button-card:hover,
+.button-card-back:hover {
+  color: rgb(225, 222, 35);
   cursor: pointer;
 }
