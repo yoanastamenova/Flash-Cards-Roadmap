@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import "./Card.css";
 import questions from "../../data/questions.json"
 import { useNavigate } from 'react-router-dom';
+import PropTypes from "prop-types";
 
-const Card = () => {
+const Card = ({ onAnswer, onQuestionChange }) => {
+      Card.propTypes = {
+      onAnswer: PropTypes.func,
+      onQuestionChange: PropTypes.func
+      };
     const [currentIndex, setCurrentIndex] = useState(0);
     const currentQuestion = questions[currentIndex];
     let navigate = useNavigate();
@@ -13,6 +18,10 @@ const Card = () => {
     useEffect(() => {
       setSelectedAnswer('');
     }, [currentIndex])
+
+    useEffect(() => {
+  if (onQuestionChange) onQuestionChange(currentIndex);
+}, [currentIndex, onQuestionChange]);
 
   return (
     <div className='card-body'>
@@ -34,7 +43,10 @@ const Card = () => {
                      id={`answer-${i}`}
                      name={`q-${currentIndex}`}
                      value={answer}
-                     onChange={() => setSelectedAnswer(answer)}
+                     onChange={() => {
+                      setSelectedAnswer(answer); 
+                      onAnswer(answer, currentQuestion.correctAnswer)
+                    }}
                      checked={selectedAnswer === answer}
                      disabled={!!selectedAnswer} 
                    />
@@ -48,12 +60,14 @@ const Card = () => {
           {currentIndex > 0 && (
           <button className="button-card-back"
           type="button"
-          onClick={() => setCurrentIndex(currentIndex - 1)}> 
+          onClick={() => { setCurrentIndex(currentIndex - 1);
+          if (onQuestionChange) onQuestionChange(currentIndex - 1)}}> 
           Back </button> )}
 
           {currentIndex < questions.length - 1 && (
              <button className="button-card" type="button"
-            onClick={() => setCurrentIndex(currentIndex + 1)}> 
+            onClick={() => { setCurrentIndex(currentIndex + 1);
+            if (onQuestionChange) onQuestionChange(currentIndex + 1)}}> 
             Next </button>)}
 
           {currentIndex === questions.length - 1 && (
