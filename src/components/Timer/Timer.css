@@ -1,0 +1,26 @@
+.timer-container {
+  text-align: center;
+  margin-top: 10rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.time-up-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ff6b6b;
+  margin-top: 20px;
+}
+
+.card.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.card.disabled button {
+  background-color: #ccc;
+  color: #fffbfb;
+  cursor: not-allowed;
+}
