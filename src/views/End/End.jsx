@@ -8,13 +8,12 @@ export const End = () => {
   const handleExit = () => {
     navigate('/');
   }
-
     const result = 3;
 
   return (
     <div className='end-body'>
       <p className='end-text'>Thank you for playing!</p>
-      <p className='end-score'>{`Here is your score: ${result}`} </p>
+      <p className='end-score'>{`Your final score is: ${result}`} </p>
       <button className='end-button' onClick={handleExit}>Exit</button>
       </div>
   )

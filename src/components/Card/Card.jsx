@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Card.css";
 import questions from "../../data/questions.json"
 import { useNavigate } from 'react-router-dom';
@@ -8,17 +8,42 @@ const Card = () => {
     const currentQuestion = questions[currentIndex];
     let navigate = useNavigate();
 
+    const [selectedAnswer, setSelectedAnswer] = useState('');
+
+    useEffect(() => {
+      setSelectedAnswer('');
+    }, [currentIndex])
+
   return (
     <div className='card-body'>
         <form>
            <fieldset>
            <legend>{currentQuestion.question}</legend>
-             {currentQuestion.answers.map((answer, i) => (
-              <div key={i}>
-              <input type="radio" id={`answer-${i}`} name={`q-${currentIndex}`} value={answer} />
-              <label htmlFor={`answer-${i}`}>{answer}</label>
-            </div>
-          ))}
+             {currentQuestion.answers.map((answer, i) => {
+                const labelClassName =
+                selectedAnswer === answer
+                ? answer === currentQuestion.correctAnswer
+                ? 'label label--correct'
+                : 'label label--wrong'
+                : 'label';
+
+               return (
+                 <div key={i}>
+                   <input
+                     type="radio"
+                     id={`answer-${i}`}
+                     name={`q-${currentIndex}`}
+                     value={answer}
+                     onChange={() => setSelectedAnswer(answer)}
+                     checked={selectedAnswer === answer}
+                     disabled={!!selectedAnswer} 
+                   />
+                   <label className={labelClassName} htmlFor={`answer-${i}`}>
+                     {answer}
+                   </label>
+                 </div>
+               );
+             })}
           <div>
           {currentIndex > 0 && (
           <button className="button-card-back"
