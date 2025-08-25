@@ -26,7 +26,7 @@ export default function Main() {
         selectedAnswer === correctAnswer ? (
           <p className='correct-answer'> ✅ Nice! Your answer is correct! 🥳 </p>
         ) : (
-          <p className='wrong-answer'> 🚫 Oh no! The correct answer was {correctAnswer} 💡 </p>
+          <p className='wrong-answer'> 🚫 Oh no! The correct answer was {correctAnswer}. 💡 </p>
         )
       )}
     </div>
