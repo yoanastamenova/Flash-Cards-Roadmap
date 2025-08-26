@@ -6,15 +6,23 @@ import PropTypes from "prop-types";
 
 const Card = ({ onAnswer, onQuestionChange }) => {
   Card.propTypes = {
-    onAnswer: PropTypes.func,
-    onQuestionChange: PropTypes.func
+    onAnswer: PropTypes.string,
+    onQuestionChange: PropTypes.string
   };
   const [currentIndex, setCurrentIndex] = useState(0);
-  const currentQuestion = questions[currentIndex];
   const [score, setScore] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const currentQuestion = questions[currentIndex];
   let navigate = useNavigate();
 
-  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const handleAnswer = (answer) => {
+    if (answer) {
+      setTimeout(() => {
+        setCurrentIndex(currentIndex + 1);
+        if (onQuestionChange) onQuestionChange(currentIndex + 1);
+      }, 2000);
+    }
+  }
 
   const handleSubmit = () => {
   navigate("/end", { state: { finalScore: score } });
@@ -36,7 +44,7 @@ const Card = ({ onAnswer, onQuestionChange }) => {
           {currentQuestion.answers.map((answer, i) => {
             const labelClassName =
               selectedAnswer === answer
-                ? answer === currentQuestion.correctAnswer
+                  ? answer === currentQuestion.correctAnswer
                   ? 'label label--correct'
                   : 'label label--wrong'
                 : 'label';
@@ -53,7 +61,8 @@ const Card = ({ onAnswer, onQuestionChange }) => {
                     if (answer === currentQuestion.correctAnswer) {
                       setScore(prev => prev + 5);
                     }
-                    onAnswer(answer, currentQuestion.correctAnswer)
+                    onAnswer(answer, currentQuestion.correctAnswer);
+                    handleAnswer(answer);
                   }}
                   checked={selectedAnswer === answer}
                   disabled={!!selectedAnswer}
