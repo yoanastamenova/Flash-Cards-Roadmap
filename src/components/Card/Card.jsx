@@ -6,48 +6,60 @@ import PropTypes from "prop-types";
 
 const Card = ({ onAnswer, onQuestionChange }) => {
   Card.propTypes = {
-    onAnswer: PropTypes.string,
-    onQuestionChange: PropTypes.string
+    onAnswer: PropTypes.func,
+    onQuestionChange: PropTypes.func
   };
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
+
+  // new state: store locked answers by question index
+  const [lockedAnswers, setLockedAnswers] = useState({});
   const [selectedAnswer, setSelectedAnswer] = useState('');
+
   const currentQuestion = questions[currentIndex];
   let navigate = useNavigate();
 
   const handleAnswer = (answer) => {
     if (answer) {
       setTimeout(() => {
-        setCurrentIndex(currentIndex + 1);
+        setCurrentIndex((prev) => prev + 1);
         if (onQuestionChange) onQuestionChange(currentIndex + 1);
       }, 2000);
     }
-  }
+  };
 
   const handleSubmit = () => {
-  navigate("/end", { state: { finalScore: score } });
-};
+    navigate("/end", { state: { finalScore: score } });
+  };
 
+  // Restore answer when moving between questions
   useEffect(() => {
-    setSelectedAnswer('');
-  }, [currentIndex])
+    if (lockedAnswers[currentIndex]) {
+      setSelectedAnswer(lockedAnswers[currentIndex]);
+    } else {
+      setSelectedAnswer('');
+    }
+  }, [currentIndex, lockedAnswers]);
 
   useEffect(() => {
     if (onQuestionChange) onQuestionChange(currentIndex);
   }, [currentIndex, onQuestionChange]);
 
+  const finalAnswer = lockedAnswers[currentIndex] || selectedAnswer;
+
   return (
-    <div className='card-body'>
+    <div className="card-body">
       <form>
         <fieldset>
           <legend>{currentQuestion.question}</legend>
           {currentQuestion.answers.map((answer, i) => {
             const labelClassName =
-              selectedAnswer === answer
-                  ? answer === currentQuestion.correctAnswer
-                  ? 'label label--correct'
-                  : 'label label--wrong'
-                : 'label';
+              finalAnswer === answer
+                ? answer === currentQuestion.correctAnswer
+                  ? "label label--correct"
+                  : "label label--wrong"
+                : "label";
 
             return (
               <div key={i}>
@@ -56,16 +68,23 @@ const Card = ({ onAnswer, onQuestionChange }) => {
                   id={`answer-${i}`}
                   name={`q-${currentIndex}`}
                   value={answer}
+                  checked={finalAnswer === answer}
+                  disabled={!!lockedAnswers[currentIndex]} // disable if already answered
                   onChange={() => {
-                    setSelectedAnswer(answer);
-                    if (answer === currentQuestion.correctAnswer) {
-                      setScore(prev => prev + 5);
+                    if (!lockedAnswers[currentIndex]) {
+                      setLockedAnswers((prev) => ({
+                        ...prev,
+                        [currentIndex]: answer,
+                      }));
+
+                      if (answer === currentQuestion.correctAnswer) {
+                        setScore((prev) => prev + 5);
+                      }
+                      onAnswer(answer, currentQuestion.correctAnswer);
+                      handleAnswer(answer);
                     }
-                    onAnswer(answer, currentQuestion.correctAnswer);
-                    handleAnswer(answer);
+                    setSelectedAnswer(answer); // still trigger for first attempt
                   }}
-                  checked={selectedAnswer === answer}
-                  disabled={!!selectedAnswer}
                 />
                 <label className={labelClassName} htmlFor={`answer-${i}`}>
                   {answer}
@@ -75,27 +94,40 @@ const Card = ({ onAnswer, onQuestionChange }) => {
           })}
           <div>
             {currentIndex > 0 && (
-              <button className="button-card-back"
+              <button
+                className="button-card-back"
                 type="button"
                 onClick={() => {
-                  setCurrentIndex(currentIndex - 1);
-                  if (onQuestionChange) onQuestionChange(currentIndex - 1)
-                }}>
-                Back </button>)}
+                  setCurrentIndex((prev) => prev - 1);
+                  if (onQuestionChange) onQuestionChange(currentIndex - 1);
+                }}
+              >
+                Back
+              </button>
+            )}
 
             {currentIndex < questions.length - 1 && (
-              <button className="button-card" type="button"
+              <button
+                className="button-card"
+                type="button"
                 onClick={() => {
-                  setCurrentIndex(currentIndex + 1);
-                  if (onQuestionChange) onQuestionChange(currentIndex + 1)
-                }}>
-                Next </button>)}
+                  setCurrentIndex((prev) => prev + 1);
+                  if (onQuestionChange) onQuestionChange(currentIndex + 1);
+                }}
+              >
+                Next
+              </button>
+            )}
 
             {currentIndex === questions.length - 1 && (
-              <button className="button-card-submit" type="button"
-                onClick={handleSubmit}>
+              <button
+                className="button-card-submit"
+                type="button"
+                onClick={handleSubmit}
+              >
                 Submit
-              </button>)}
+              </button>
+            )}
           </div>
         </fieldset>
       </form>
