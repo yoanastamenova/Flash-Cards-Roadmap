@@ -17,6 +17,7 @@ html {
 
 label {
   margin-right: 15px;
+  margin-left: 10px;
   line-height: 32px;
   font-size: 1.5rem;
   display: inline-block;
@@ -45,12 +46,18 @@ fieldset {
   border: none;
 }
 
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 18rem;
+  margin-top: 1rem;
+}
+
 .button-card {
   color: white;
   background: rgb(85, 83, 237) 100%;
-  padding: 5px 10px;
   border-radius: 1rem;
-  margin-left: 20rem;
+  margin-top: 1rem;
   border: 0.1rem solid black;
   backdrop-filter: blur(80px);
   -webkit-backdrop-filter: blur(10px);
@@ -61,9 +68,8 @@ fieldset {
 .button-card-submit {
   color: white;
   background: rgb(85, 83, 237) 100%;
-  padding: 5px 10px;
   border-radius: 1rem;
-  margin-left: 18rem;
+  margin-top: 1rem;
   border: 0.1rem solid black;
   backdrop-filter: blur(80px);
   -webkit-backdrop-filter: blur(10px);
@@ -75,7 +81,6 @@ fieldset {
 .button-card-back {
   color: white;
   background:  rgb(85, 83, 237) 100%;
-  padding: 5px 10px;
   border-radius: 1rem;
   margin-top: 1rem;
   border: 0.1rem solid black;
