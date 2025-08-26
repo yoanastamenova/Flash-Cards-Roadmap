@@ -17,7 +17,7 @@ export const Start = () => {
         <img src={logo} className='logoStart'></img>
         <div className='header'>Welcome to VALE Quiz</div>
         <p>This quiz is about the Valencian MaibornWolff Office and the people which work from there. You will be asked 10 questions with 3 possible answers.
-          The right question is only one. For the quiz there is a time limit of 20 minutes. If you get out of time the quiz will be automatically ended.
+          The right question is only one. For the quiz there is a time limit of 20 minutes. Each right question gives you 5 points. If you get out of time the quiz will be automatically ended.
           Good luck and have fun!
         </p>
       <button className='button-start' onClick={handleStart}>

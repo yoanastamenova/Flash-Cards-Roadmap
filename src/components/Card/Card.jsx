@@ -13,7 +13,6 @@ const Card = ({ onAnswer, onQuestionChange }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
 
-  // new state: store locked answers by question index
   const [lockedAnswers, setLockedAnswers] = useState({});
   const [selectedAnswer, setSelectedAnswer] = useState('');
 
@@ -37,7 +36,6 @@ const Card = ({ onAnswer, onQuestionChange }) => {
     navigate("/end", { state: { finalScore: score } });
   };
 
-  // Restore answer when moving between questions
   useEffect(() => {
     if (lockedAnswers[currentIndex]) {
       setSelectedAnswer(lockedAnswers[currentIndex]);
@@ -73,7 +71,7 @@ const Card = ({ onAnswer, onQuestionChange }) => {
                   name={`q-${currentIndex}`}
                   value={answer}
                   checked={finalAnswer === answer}
-                  disabled={!!lockedAnswers[currentIndex]} // disable if already answered
+                  disabled={!!lockedAnswers[currentIndex]} 
                   onChange={() => {
                     if (!lockedAnswers[currentIndex]) {
                       setLockedAnswers((prev) => ({
@@ -87,7 +85,7 @@ const Card = ({ onAnswer, onQuestionChange }) => {
                       onAnswer(answer, currentQuestion.correctAnswer);
                       handleAnswer(answer);
                     }
-                    setSelectedAnswer(answer); // still trigger for first attempt
+                    setSelectedAnswer(answer);
                   }}
                 />
                 <label className={labelClassName} htmlFor={`answer-${i}`}>
@@ -96,7 +94,7 @@ const Card = ({ onAnswer, onQuestionChange }) => {
               </div>
             );
           })}
-          <div>
+          <div className='button-container'>
             {currentIndex > 0 && (
               <button
                 className="button-card-back"
