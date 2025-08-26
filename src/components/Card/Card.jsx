@@ -16,21 +16,33 @@ const Card = ({ onAnswer, onQuestionChange }) => {
   const [lockedAnswers, setLockedAnswers] = useState({});
   const [selectedAnswer, setSelectedAnswer] = useState('');
 
+  const [clickNext, setClickNext] = useState(false);
+
   const currentQuestion = questions[currentIndex];
   let navigate = useNavigate();
 
   const handleAnswer = (answer) => {
-  if (answer) {
-    setTimeout(() => {
-      if (currentIndex === questions.length - 1) {
-        handleSubmit();
-      } else {
-        setCurrentIndex(currentIndex + 1);
-        if (onQuestionChange) onQuestionChange(currentIndex + 1);
-      }
-    }, 2000);
+    if (answer) {
+      setTimeout(() => {
+         if (currentIndex === questions.length - 1) {
+          handleSubmit();
+        } else {
+          setCurrentIndex(currentIndex + 1);
+          if (onQuestionChange) onQuestionChange(currentIndex + 1);
+        }
+      }, 2000);
+    }
+  };
+
+  const handleNextClick = () => {
+    if(!selectedAnswer) {
+      setClickNext(true);
+      return
+    } 
+    setClickNext(false);
+    setCurrentIndex(currentIndex + 1);
+    if(onQuestionChange) onQuestionChange(currentIndex + 1);
   }
-};
 
   const handleSubmit = () => {
     navigate("/end", { state: { finalScore: score } });
@@ -112,10 +124,9 @@ const Card = ({ onAnswer, onQuestionChange }) => {
               <button
                 className="button-card"
                 type="button"
-                onClick={() => {
-                  setCurrentIndex((prev) => prev + 1);
-                  if (onQuestionChange) onQuestionChange(currentIndex + 1);
-                }}
+                onClick={handleNextClick}
+                disabled={!selectedAnswer}
+                style={{ opacity: !selectedAnswer ? 0.5 : 1, cursor: !selectedAnswer ? 'not-allowed' : 'pointer' }}
               >
                 Next
               </button>
@@ -126,6 +137,8 @@ const Card = ({ onAnswer, onQuestionChange }) => {
                 className="button-card-submit"
                 type="button"
                 onClick={handleSubmit}
+                disabled={!selectedAnswer}
+                style={{ opacity: !selectedAnswer ? 0.5 : 1, cursor: !selectedAnswer ? 'not-allowed' : 'pointer' }}
               >
                 Submit
               </button>
