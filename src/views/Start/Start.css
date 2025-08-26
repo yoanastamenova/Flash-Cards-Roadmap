@@ -40,6 +40,7 @@
 }
 
 .bg-text {
+  text-wrap: balance;
   backdrop-filter: blur(80px);
   -webkit-backdrop-filter: blur(10px);
   color: rgb(255, 255, 255);

@@ -21,13 +21,17 @@ const Card = ({ onAnswer, onQuestionChange }) => {
   let navigate = useNavigate();
 
   const handleAnswer = (answer) => {
-    if (answer) {
-      setTimeout(() => {
-        setCurrentIndex((prev) => prev + 1);
+  if (answer) {
+    setTimeout(() => {
+      if (currentIndex === questions.length - 1) {
+        handleSubmit();
+      } else {
+        setCurrentIndex(currentIndex + 1);
         if (onQuestionChange) onQuestionChange(currentIndex + 1);
-      }, 2000);
-    }
-  };
+      }
+    }, 2000);
+  }
+};
 
   const handleSubmit = () => {
     navigate("/end", { state: { finalScore: score } });
