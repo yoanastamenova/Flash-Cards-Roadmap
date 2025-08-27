@@ -1,38 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import "./Card.css";
 import questions from "../../data/questions.json"
 import { useNavigate } from 'react-router-dom';
 import PropTypes from "prop-types";
 
-const Card = ({ onAnswer, onQuestionChange }) => {
-  Card.propTypes = {
-    onAnswer: PropTypes.func,
-    onQuestionChange: PropTypes.func
-  };
-
+const Card = forwardRef(({ onAnswer, onQuestionChange }, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
-
   const [lockedAnswers, setLockedAnswers] = useState({});
   const [selectedAnswer, setSelectedAnswer] = useState('');
-
   const [clickNext, setClickNext] = useState(false);
 
   const currentQuestion = questions[currentIndex];
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleAnswer = (answer) => {
-    if (answer) {
-      setTimeout(() => {
-         if (currentIndex === questions.length - 1) {
-          handleSubmit();
-        } else {
-          setCurrentIndex(currentIndex + 1);
-          if (onQuestionChange) onQuestionChange(currentIndex + 1);
-        }
-      }, 2000);
-    }
-  };
 
   const handleNextClick = () => {
     if(!selectedAnswer) {
@@ -61,6 +42,17 @@ const Card = ({ onAnswer, onQuestionChange }) => {
   }, [currentIndex, onQuestionChange]);
 
   const finalAnswer = lockedAnswers[currentIndex] || selectedAnswer;
+
+  useImperativeHandle(ref, () => ({
+    moveToNextQuestion: () => {
+      if (currentIndex === questions.length - 1) {
+        handleSubmit();
+      } else {
+        setCurrentIndex(currentIndex + 1);
+        if (onQuestionChange) onQuestionChange(currentIndex + 1);
+      }
+    }
+  }), [currentIndex, onQuestionChange, handleSubmit]);
 
   return (
     <div className="card-body">
@@ -95,7 +87,6 @@ const Card = ({ onAnswer, onQuestionChange }) => {
                         setScore((prev) => prev + 5);
                       }
                       onAnswer(answer, currentQuestion.correctAnswer);
-                      handleAnswer(answer);
                     }
                     setSelectedAnswer(answer);
                   }}
@@ -148,6 +139,11 @@ const Card = ({ onAnswer, onQuestionChange }) => {
       </form>
     </div>
   );
-};
+});
 
+Card.propTypes = {
+  onAnswer: PropTypes.func,
+  onQuestionChange: PropTypes.func
+};
+Card.displayName = "Card";
 export default Card;

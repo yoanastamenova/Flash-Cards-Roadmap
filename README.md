@@ -1,4 +1,4 @@
-# ⚡ Flash Cards Quiz VALE
+# ⚡ Flash Cards Quiz
 A small project inspired by the <a href="https://roadmap.sh/projects/quiz-app"> Roadmap Projects </a> suggestions. Built with JavaScript, React, and version-controlled with GitHub.
 
 ## Used technologies
