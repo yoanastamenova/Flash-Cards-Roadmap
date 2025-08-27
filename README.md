@@ -1,5 +1,5 @@
-# Flash Cards Quiz VALE
-This project is made for refreshing my react skills together with some new styling logic. It consists of 10 questions with answers of multiple choice. Upon answering the user can see if their answer is correct. After finishing the test, there is a display with the total score of the player. 
+# ⚡ Flash Cards Quiz VALE
+A small project inspired by the <a href="https://roadmap.sh/projects/quiz-app"> Roadmap Projects </a> suggestions. Built with JavaScript, React, and version-controlled with GitHub.
 
 ## Used technologies
 
@@ -26,7 +26,6 @@ This project is made for refreshing my react skills together with some new styli
 
 ## 
 
-
 ## Key Features
 
 This website is built with the user experience firmly in mind, providing a seamless interaction and visually engaging design:
@@ -35,3 +34,33 @@ This website is built with the user experience firmly in mind, providing a seaml
 - **Game**: Flash cards game with multiple answers for a certain amount of time and scoring.
 - **Responsive Design**: Fully responsive on mobile, tablet, and desktop views.
 - **End Result Score**: After finishing the game an end result is shown on the screen which indicates the total of the score the player made.
+
+## Installation & Setup
+
+Clone the repository
+```
+git clone https://github.com/yourusername/flashcards-quiz.git
+```
+Navigate into the project
+```
+cd flashcards-quiz
+```
+Install dependencies
+```
+npm install
+```
+ Run the development server
+```
+npm run dev
+```
+
+## Future Improvements
+
+- Add a question category selector (e.g., Math, History, Science).
+- Implement difficulty levels (easy, medium, hard).
+- Add leaderboard functionality to track top scores.
+- Include animations and transitions for smoother gameplay.
+
+## Contributions
+Contributions, issues, and feature requests are welcome!
+Feel free to open a pull request or suggest improvements.
